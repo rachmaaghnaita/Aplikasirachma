@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KONVERSI BILANGAN</title>
+    <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="asset/css/flickity.css">
+    <link rel="stylesheet" href="asset/css/aos.css">
+    <link rel="stylesheet" href="asset/css/style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Aplikasi Konversi Bilangan</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="menu pt-5 pb-5 text-center">
+        <div class="container">
+
+            <div class="row">
+                <h2>KONVERSI
+                <div class="dropdown">
+                    <button id="dropdownMenuButton1" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Desimal
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" id="dropdown-item-1" onclick="updateDropdownText1('Desimal')">Desimal</a></li>
+                        <li><a class="dropdown-item" id="dropdown-item-1" onclick="updateDropdownText1('Biner')">Biner</a></li>
+                        <li><a class="dropdown-item" id="dropdown-item-1" onclick="updateDropdownText1('Oktal')">Oktal</a></li>
+                        <li><a class="dropdown-item" id="dropdown-item-1" onclick="updateDropdownText1('Hexadesimal')">Hexadesimal</a></li>
+                    </ul>
+                </div>
+                KE
+                <div class="dropdown">
+                    <button id="dropdownMenuButton2" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Biner
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                        <li><a class="dropdown-item" id="dropdown-item-2" onclick="updateDropdownText2('Desimal')">Desimal</a></li>
+                        <li><a class="dropdown-item" id="dropdown-item-2" onclick="updateDropdownText2('Biner')">Biner</a></li>
+                        <li><a class="dropdown-item" id="dropdown-item-2" onclick="updateDropdownText2('Oktal')">Oktal</a></li>
+                        <li><a class="dropdown-item" id="dropdown-item-2" onclick="updateDropdownText2('Hexadesimal')">Hexadesimal</a></li>
+                    </ul>
+                </div>
+                <button class="btn btn-warning" id="swap" type="submit">SWAP ⇅</button>
+            </h2>
+        </div>
+    </section>
+
+    <section class="converter">
+        <div class="converter-container" id="converterContainer">
+
+            <div class="card-container">
+                <div class="card decimalToBiner">
+                    <h3 class="text-center">DESIMAL KE BINER</h3>
+                    <form onsubmit="convertDesimalToBiner(event)">
+                        <label for="inputDesimalToBiner" class="form-label">Input Bilangan Desimal</label>
+                        <input type="number" class="form-control" id="inputDesimalToBiner" name="inputDesimalToBiner">
+                        <button type="submit" class="btn btn-lg btn-success mt-2">Convert</button>
+                    </form>
+                    <p class="mt-3">Hasil</p>
+                    <input type="text" id="hasilDesimalToBiner" class="form-control" readonly>
+                </div>
+            </div>
+                
+            <div class="card-container">
+                <div class="card decimalToOctal">
+                    <h3 class="text-center">DESIMAL KE OKTAL</h3>
+                    <form onsubmit="convertDesimalToOktal(event)">
+                        <label for="inputDesimalToOktal" class="form-label">Input Bilangan Desimal</label>
+                        <input type="number" class="form-control" id="inputDesimalToOktal" name="inputDesimalToOktal">
+                        <button type="submit" class="btn btn-lg btn-success mt-2">Convert</button>
+                    </form>
+                    <p class="mt-3">Hasil</p>
+                    <input type="text" id="hasilDesimalToOktal" class="form-control" readonly>
+                </div>
+            </div>
+                
+            <div class="card-container">
+                <div class="card decimalToHexaDecimal">
+                    <h3 class="text-center">DESIMAL KE HEKSADESIMAL</h3>
+                    <form onsubmit="convertDesimalToHexaDecimal(event)">
+                        <label for="inputDesimalToHexaDecimal" class="form-label">Input Bilangan Desimal</label>
+                        <input type="number" class="form-control" id="inputDesimalToHexaDecimal" name="inputDesimalToHexaDecimal">
+                        <button type="submit" class="btn btn-lg btn-success mt-2">Convert</button>
+                    </form>
+                    <p class="mt-3">Hasil</p>
+                    <input type="text" id="hasilDesimalToHexaDecimal" class="form-control" readonly>
+                </div>
+            </div>
+
+            <div class="card-container">
+                <div class="card binerToDecimal">
+                    <h3 class="text-center">BINER KE DESIMAL</h3>
+                    <form onsubmit="convertBinerToDesimal(event)">
+                        <label for="inputBinerToDesimal" class="form-label">Input Bilangan Biner</label>
+                        <input type="text" id="inputBinerToDesimal" class="form-control" name="inputBinerToDesimal" pattern="[01]+">
+                        <button type="submit" class="btn btn-lg btn-success mt-2">Convert</button>
+                    </form>
+                    <p class="mt-3">Hasil</p>
+                    <input type="text" id="hasilBinerToDesimal" class="form-control" readonly>
+                </div>
+            </div>
+
+            <div class="card-container">
+                <div class="card binerToOktal">
+                    <h3 class="text-center">BINER KE OKTAL</h3>
+                    <form onsubmit="convertBinerToOctal(event)">
+                        <label for="inputBinerToOktal" class="form-label">Input Bilangan Biner</label>
+                        <input type="text" id="inputBinerToOktal" class="form-control" name="inputBinerToOktal" pattern="[01]+" maxlength="32">
+                        <button type="submit" class="btn btn-lg btn-success mt-2">Convert</button>
+                    </form>
+                    <p class="mt-3">Hasil</p>
+                    <input type="text" id="hasilBinerToOktal" class="form-control" readonly>
+                </div>
+            </div>
+
+            <div class="card-container">
+                <div class="card binerToHexadecimal">
+                    <h3 class="text-center">BINER KE HEKSADESIMAL</h3>
+                    <form onsubmit="convertBinerToHexadecimal(event)">
+                        <label for="inputBinerToHexadecimal" class="form-label">Input Bilangan Biner</label>
+                        <input type="text" id="inputBinerToHexadecimal" class="form-control" name="inputBinerToHexadecimal" pattern="[01]+" maxlength="32">
+                        <button type="submit" class="btn btn-lg btn-success mt-2">Convert</button>
+                    </form>
+                    <p class="mt-3">Hasil</p>
+                    <input type="text" id="hasilBinerToHexadecimal" class="form-control" readonly>
+                </div>
+            </div>
+
+            <div class="card-container">
+                <div class="card octalToDecimal">
+                    <h3 class="text-center">OKTAL KE DESIMAL</h3>
+                    <form onsubmit="convertOktalToDesimal(event)">
+                        <label for="inputOktalToDesimal" class="form-label">Input Bilangan Desimal</label>
+                        <input type="number"  class="form-control" id="inputOktalToDesimal" name="inputOktalToDesimal">
+                        <button type="submit" class="btn btn-lg btn-success mt-2">Convert</button>
+                    </form>
+                    <p class="mt-3">Hasil</p>
+                    <input type="text" id="hasilOktalToDesimal" class="form-control" readonly>
+                </div>
+            </div>
+
+            <div class="card-container">
+                <div class="card octalToBiner">
+                    <h3 class="text-center">OKTAL KE BINER</h3>
+                    <form onsubmit="convertOktalToBiner(event)">
+                        <label for="inputOktalToBiner" class="form-label">Input Bilangan Oktal</label>
+                        <input type="text" id="inputOktalToBiner" class="form-control" name="inputOktalToBiner" pattern="[0-7]+" maxlength="11">
+                        <button type="submit" class="btn btn-lg btn-success mt-2">Convert</button>
+                    </form>
+                    <p class="mt-3">Hasil</p>
+                    <input type="text" id="hasilOktalToBiner" class="form-control" readonly>
+                </div>
+            </div>
+
+            <div class="card-container">
+                <div class="card octalToHexadecimal">
+                    <h3 class="text-center">OKTAL KE HEXADESIMAL</h3>
+                    <form onsubmit="convertOktalToHexadecimal(event)">
+                        <label for="inputOktalToHexadecimal" class="form-label">Input Bilangan Oktal</label>
+                        <input type="text" id="inputOktalToHexadecimal" class="form-control" name="inputOktalToHexadecimal" pattern="[0-7]+" maxlength="11">
+                        <button type="submit" class="btn btn-lg btn-success mt-2">Convert</button>
+                    </form>
+                    <p class="mt-3">Hasil</p>
+                    <input type="text" id="hasilOktalToHexadecimal" class="form-control" readonly>
+                </div>
+            </div>
+
+            <div class="card-container">
+                <div class="card HexadecimalToDecimal">
+                    <h3 class="text-center">HEXADESIMAL KE DESIMAL</h3>
+                    <form onsubmit="convertHexadecimalToDecimal(event)">
+                        <label for="inputHexadecimalToDecimal" class="form-label">Input Bilangan Heksadesimal</label>
+                        <input type="text" id="inputHexadecimalToDecimal" class="form-control" name="inputHexadecimalToDecimal" pattern="[0-9, A-F, a-f]+" maxlength="8">
+                        <button type="submit" class="btn btn-lg btn-success mt-2">Convert</button>
+                    </form>
+                    <p class="mt-3">Hasil</p>
+                    <input type="text" id="hasilHexadecimalToDecimal" class="form-control" readonly>
+                </div>
+            </div>
+
+            <div class="card-container">
+                <div class="card HexadecimalToBiner">
+                    <h3 class="text-center">HEXADESIMAL KE BINER</h3>
+                    <form onsubmit="convertHexadecimalToBiner(event)">
+                        <label for="inputHexadecimalToBiner" class="form-label">Input Bilangan Heksadesimal</label>
+                        <input type="text" id="inputHexadecimalToBiner" class="form-control" name="inputHexadecimalToBiner" pattern="[0-9, A-F, a-f]+" maxlength="8">
+                        <button type="submit" class="btn btn-lg btn-success mt-2">Convert</button>
+                    </form>
+                    <p class="mt-3">Hasil</p>
+                    <input type="text" id="hasilHexadecimalToBiner" class="form-control" readonly>
+                </div>
+            </div>
+
+            <div class="card-container">
+                <div class="card HexadecimalToOctal">
+                    <h3 class="text-center">HEXADESIMAL KE OKTAL</h3>
+                    <form onsubmit="convertHexadecimalToOctal(event)">
+                        <label for="inputHexadecimalToOctal" class="form-label">Input Bilangan Heksadesimal</label>
+                        <input type="text" id="inputHexadecimalToOctal" class="form-control" name="inputHexadecimalToOctal" pattern="[0-9, A-F, a-f]+" maxlength="8">
+                        <button type="submit" class="btn btn-lg btn-success mt-2">Convert</button>
+                    </form>
+                    <p class="mt-3">Hasil</p>
+                    <input type="text" id="hasilHexadecimalToOctal" class="form-control" readonly>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="w-100 bg-dark p-4 text-light text-center">
+        <h2>&copy; Copyright 2024</h2>
+    </footer>
+
+    <script src="asset/js/jquery-3.7.1.min.js"></script>
+    <script src="asset/js/bootstrap.bundle.min.js"></script>
+    <script src="asset/js/script.js"></script>
+</body>
+</html>

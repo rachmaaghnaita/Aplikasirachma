@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OKESIR - KASIR COFFEE SHOP</title>
+    <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="asset/css/style.css">
+
+    <link rel="shortcut icon" href="asset/images/vecteezy_coffee-icon-sign-symbol-design_10159491.webp" type="image/x-icon">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top text-white navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#">
+                <img src="asset/images/vecteezy_coffee-icon-sign-symbol-design_10159491.webp" width="24" height="24" class="d-inline-block align-text-top me-2">
+                COFFEE SHOP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="../index.html">HOME</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="content text-center">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <div class="card tambah-barang text-white">
+                        <h2>TAMBAH BARANG</h2>
+                        <div id="formContainer" class="text-start">
+                            <label class="text-start mb-1" for="namaBarang" class="form-label">Nama :</label>
+                            <select name="namaBarang" id="namaBarang" class="form-select mb-3 bg-dark text-white">
+                            </select>
+                        </div>
+                        <label class="text-start mb-1" for="hargaBarang" class="form-label">Harga :</label>
+                        <input type="text" name="hargaBarang" id="hargaBarang" value="5000" readonly class="form-control mb-3 bg-dark bg-opacity-10 text-white">
+                        <label class="text-start mb-1" for="jumlah" class="form-label">Jumlah :</label>
+                        <input type="number" name="jumlah" id="jumlah" class="form-control mb-3 bg-dark bg-opacity-10 text-white">
+                        <button type="submit" class="btn btn-md btn-primary w-50 m-auto" id="tambahButton">Tambah</button>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card result text-white">
+                        <table class="table table-dark table-striped bg-opacity-10">
+                            <thead>
+                                <tr>
+                                    <th scope="col">NO</th>
+                                    <th scope="col">Nama Barang</th>
+                                    <th scope="col">Jumlah</th>
+                                    <th scope="col">Harga</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resultTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+           
+                <div class="col-lg-6">
+                    <div class="card payment text-white">
+                        <h2>Payment</h2>
+                        <label class="text-start" for="subtotal">Sub Total :</label>
+                        <input type="number" class="form-control mb-3 bg-dark bg-opacity-10 text-white" name="subtotal" id="subtotal" readonly>
+                        <label class="text-start" for="discount">Discount % :</label>
+                        <input type="number" class="form-control mb-3 bg-dark bg-opacity-10 text-white" name="discount" id="discount">
+                        <label class="text-start" for="nilaiDiscount">Nilai Discount :</label>
+                        <input type="text" class="form-control mb-3 bg-dark bg-opacity-10 text-white" name="nilaiDiscount" id="nilaiDiscount" readonly>
+                        <label class="text-start" for="totalBayar">Total Bayar :</label>
+                        <input type="text" class="form-control mb-3 bg-dark bg-opacity-10 text-white" name="totalBayar" id="totalBayar" readonly>
+                        <label class="text-start" for="uangDiterima">Tunai :</label>
+                        <input type="text" class="form-control mb-3 bg-dark bg-opacity-10 text-white" name="uangDiterima" id="uangDiterima">
+                        <label class="text-start" for="uangKembali">Kembali :</label>
+                        <input type="text" class="form-control mb-3 bg-dark bg-opacity-10 text-white" name="uangKembali" id="uangKembali" readonly>
+                        <button type="submit" class="btn btn-md btn-success w-75 mb-3 m-auto" id="bayarButton">Cetak Struk</button>
+                        <button type="button" class="btn btn-md btn-danger w-75 mb-3 m-auto" id="reset">Reset</button>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card struk">
+                        <h2 class="mb-3">STRUK PEMBELIAN</h2>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">NO</th>
+                                    <th scope="col">Nama Barang</th>
+                                    <th scope="col">Jumlah</th>
+                                    <th scope="col">Harga</th>
+                                </tr>
+                            </thead>
+                            <tbody id="receiptTableBody">
+                            </tbody>
+                        </table>
+                        <div class="row text-start">
+                            <div class="col-3">
+                                <span class="text-start me-3 mt-5">SubTotal </span>
+                            </div>
+                            <div class="col-8">
+                                :
+                                <span id="strukSubTotal"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="row text-start">
+                            <div class="col-3">
+                                <span class="text-start me-3">Discount </span>
+                            </div>
+                            <div class="col-8">
+                                :
+                                <span id="strukNominalDiscount"></span><span id="strucDiscount"></span>
+                            </div>
+                        </div>
+                        <div class="row text-start">
+                            <div class="col-3">
+                                <span class="text-start me-3">Total </span>
+                            </div>
+                            <div class="col-8">
+                                :
+                                <span id="strukNominalTotal"></span>
+                            </div>
+                        </div>
+                        <div class="row text-start">
+                            <div class="col-3">
+                                <span class="text-start me-3">Tunai </span>
+                            </div>
+                            <div class="col-8">
+                                :
+                                <span id="strukNominalTunai"></span>
+                            </div>
+                        </div>
+                        <div class="row text-start">
+                            <div class="col-3">
+                                <span class="text-start me-3">Kembali </span>
+                            </div>
+                            <div class="col-8">
+                                :
+                                <span id="strukNominalKembali"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="w-100 bg-dark p-4 text-light text-center">
+        <h2>&copy; Copyright 2024</h2>
+    </footer>
+
+    
+    <script src="asset/js/jquery-3.7.1.min.js"></script>
+    <script src="asset/js/bootstrap.bundle.min.js"></script>
+    <script src="asset/js/script.js"></script>
+</body>
+</html>

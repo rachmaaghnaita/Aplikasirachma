@@ -1,0 +1,84 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body{
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+    background-image: url('../images/black-and-white-coffee-shop-background-eps-free-vector.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.navbar{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.navbar-brand{
+    font-family: "Comic Neue", cursive;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.nav-link{
+    font-family: "Comic Neue", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.content{
+    margin: 100px auto;
+}
+
+.tambah-barang{
+    height: 400px;
+    margin: 10px 0;
+    padding: 20px;
+    background-color: rgba(28, 28, 30, 0.9);
+    font-family: "Comic Neue", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.result{
+    height: 400px;
+    margin: 10px 0;
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: scroll;
+    background-color: rgba(28, 28, 30, 0.9);
+    font-family: "Comic Neue", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.payment{
+    height: 650px;
+    margin: 10px 0;
+    padding: 20px;
+    background-color: rgba(28, 28, 30, 0.9);
+    font-family: "Comic Neue", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.struk{
+    min-height: 300px;
+    margin: 10px 0;
+    padding: 20px;
+    font-family: "Quantico", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.struk h2{
+    font-family: "Comic Neue", cursive;
+    font-weight: 600;
+    font-style: normal;
+}

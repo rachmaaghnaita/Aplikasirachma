@@ -1,0 +1,86 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box
+}
+
+@import url('https://fonts.googleapis.com/css2?family=REM:ital,wght@0,100..900;1,100..900&display=swap');
+
+body{
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+    background-image: url('../images/abstract-white-tone-memphis-social-background_53876-113860.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar-brand{
+    font-family: "REM", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.nav-link{
+    font-family: "REM", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.menu h2{
+    display: flex;
+    justify-content: center;
+    font-family: "REM", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.menu h2 .dropdown{
+    width: 150px;
+}
+
+.menu h2 .dropdown button{
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.menu h2 .dropdown .dropdown-item{
+    cursor: pointer;
+}
+
+.converter{
+    max-width: 100%;
+    min-height: 70vh;
+    overflow-x: hidden !important;
+}
+
+.converter-container{
+    width: 1200%;
+    display: flex;
+    flex-direction: row;
+}
+
+.converter .card-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    transition: ease-out 1s;
+    overflow-x: hidden !important;
+}
+
+.converter .card-container .card{
+    flex: 1;
+    width: 90%;
+    margin: 20px 5%;
+    padding: 50px 20px;
+    border: none;
+    background-color: #E6E6E6;
+    font-family: "REM", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
